@@ -3,8 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-LOGIN
+      <div class="loginBlock">
+<span class=loginHeader>Login</span>
+<form class="login" action="/login" method="post">
+  <div class="userInfoInput">
+    <input type="text" name="username" class= "loginInput" placeholder="username">
+    <input type="password" name="password" class="loginInput" placeholder="password">
+    <button type="submit" name="submitLogin" class="loginbutt">login</button>
+  </div>
+</form>
+      </div>
   </body>
 </html>
