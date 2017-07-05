@@ -29,6 +29,18 @@ app.get("/signup",function(req,res){
   res.render('signup')
 })
 
+app.post("/usersignup",function(req,res){
+  const signup = models.userinfos.build({
+    username: req.body.username,
+    password: req.body.password,
+  })
+  signup.save()
+  .then(function(newuser) {
+    console.log(newuser)
+    res.redirect("/")
+  })
+})
+
 app.get("/login",function(req,res){
 
   res.render('login')
