@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const models = require('./models');
 var app = express();
+let user=false;
 var session = require('express-session')
 
 app.engine('mustache', mustache() )
@@ -30,9 +31,11 @@ app.get("/signup",function(req,res){
 })
 
 app.post("/usersignup",function(req,res){
+  const passwordInput= req.body.password;
+  const usernameInput= req.body.username;
   const signup = models.userinfos.build({
-    username: req.body.username,
-    password: req.body.password,
+    username: usernameInput,
+    password: passwordInput
   })
   signup.save()
   .then(function(newuser) {
@@ -46,17 +49,48 @@ app.get("/login",function(req,res){
   res.render('login')
 })
 
-app.get("/",function(req,res){
+app.post("/userlogin", function(req,res){
+  const usernameInput= req.body.username;
+  const passwordInput= req.body.password;
+  const login= models.userinfos.findOne({
+    where: {
+      username: usernameInput,
+      password: passwordInput,
+    }
+  })
 
+  .then(function(checkuser) {
+    console.log("Hey this works"+checkuser)
+    if(checkuser!=null){
+      user=true;
+      res.redirect('/')
+    }else {
+      res.redirect('/login')
+    }
+  })
+})
+
+app.get("/",function(req,res){
+if(user===true){
   res.render('homepage')
+}
+else {
+  res.redirect('/login')
+}
 })
 
 app.get("/newgab",function(req,res){
-
-  res.render('newgab')
+  if(user===true){
+    res.render('newgab')
+  }else {
+    res.redirect('/login')
+  }
 })
 
 app.get("/likes",function(req,res){
-
-  res.render('likes')
+  if(user===true){
+    res.render('likes')
+  }else {
+    res.redirect('/login')
+  }
 })
