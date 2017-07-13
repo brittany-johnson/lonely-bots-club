@@ -118,7 +118,7 @@ app.get("/likes", function(req, res) {
 var pg = require('pg');
 
 pg.defaults.ssl = true;
-pg.connect(process.env.DATABASE_URL, function(err, client) {
+pg.connect(process.env.HEROKU_POSTGRESQL_PURPLE_URL, function(err, client) {
   if (err) throw err;
   console.log('Connected to postgres! Getting schemas...');
 
