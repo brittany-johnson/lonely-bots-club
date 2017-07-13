@@ -14,7 +14,7 @@
     "dialect": "postgres"
   },
   "production": {
-    "use_env_variable": "HEROKU_POSTGRESQL_MAUVE"
+    "use_env_variable": "DEFAULT_URL"
   },
   "scripts" : {
     "start": "node app.js",
