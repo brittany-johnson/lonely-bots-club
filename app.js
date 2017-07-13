@@ -4,19 +4,24 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const models = require('./models');
 var app = express();
-let user=false;
-var session = require('express-session')
+let user = false;
+var session = require('express-session');
+const userinfos = require('./models/userinfos');
 
-app.engine('mustache', mustache() )
+app.engine('mustache', mustache())
 app.set('view engine', 'mustache');
 
 app.use(express.static('public'))
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true }
+  cookie: {
+    secure: true
+  }
 }))
 
 app.listen(3000, function() {
@@ -25,72 +30,82 @@ app.listen(3000, function() {
 
 //ROUTES/////////////////////////////////
 
-app.get("/signup",function(req,res){
+app.get("/signup", function(req, res) {
 
   res.render('signup')
 })
 
-app.post("/usersignup",function(req,res){
-  const passwordInput= req.body.password;
-  const usernameInput= req.body.username;
+app.post("/usersignup", function(req, res) {
+  const passwordInput = req.body.password;
+  const usernameInput = req.body.username;
   const signup = models.userinfos.build({
     username: usernameInput,
     password: passwordInput
   })
   signup.save()
-  .then(function(newuser) {
-    console.log(newuser)
-    res.redirect("/")
-  })
+    .then(function(newuser) {
+      console.log(newuser)
+      res.redirect("/")
+    })
 })
 
-app.get("/login",function(req,res){
+app.get("/login", function(req, res) {
 
   res.render('login')
 })
 
-app.post("/userlogin", function(req,res){
-  const usernameInput= req.body.username;
-  const passwordInput= req.body.password;
-  const login= models.userinfos.findOne({
-    where: {
-      username: usernameInput,
-      password: passwordInput,
-    }
-  })
+app.post("/userlogin", function(req, res) {
+  const usernameInput = req.body.username;
+  const passwordInput = req.body.password;
+  const login = models.userinfos.findOne({
+      where: {
+        username: usernameInput,
+        password: passwordInput
+      }
+    })
 
-  .then(function(checkuser) {
-    console.log("Hey this works"+checkuser)
-    if(checkuser!=null){
-      user=true;
-      res.redirect('/')
-    }else {
-      res.redirect('/login')
-    }
-  })
+    .then(function(checkuser) {
+      console.log("Hey this works" + checkuser)
+      if (checkuser != null) {
+        session.user = checkuser.username
+        user = true;
+        res.redirect('/')
+      } else {
+        res.redirect('/login')
+      }
+    })
 })
 
-app.get("/",function(req,res){
-if(user===true){
-  res.render('homepage')
-}
-else {
-  res.redirect('/login')
-}
-})
+app.get("/", function(req, res) {
+  console.log('were in')
+  if (user === true)
+    models.userinfos.findOne({
+      where: {
+        username: session.user
+      }
+    }).then(user => {
+      res.render('homepage', {
+        username: user.username
+      })
+    })
 
-app.get("/newgab",function(req,res){
-  if(user===true){
-    res.render('newgab')
-  }else {
+  else {
     res.redirect('/login')
   }
 })
 
-app.get("/likes",function(req,res){
-  if(user===true){
+app.get("/newgab", function(req, res) {
+  if (user === true) {
+    res.render('newgab')
+  } else {
+    res.redirect('/login')
+  }
+})
+
+app.get("/likes", function(req, res) {
+  if (user === true) {
     res.render('likes')
-  }else {
+  } else {
     res.redirect('/login')
   }
 })

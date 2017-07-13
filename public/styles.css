@@ -71,3 +71,11 @@ margin-bottom: 2%;
   margin-top: 5%;
   font-size: 15px;
 }
+
+.signupHeader.a {
+  display: flex;
+    background-color: #688BFF;
+    width: 50px;
+    padding: 2px;
+    border-radius: 4em;
+}
