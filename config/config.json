@@ -15,8 +15,5 @@
   },
   "production": {
     "use_env_variable": "DATABASE_URL"
-  },
-  "scripts" : {
-    "start": "node app.js",
-    }
+  }
 }
