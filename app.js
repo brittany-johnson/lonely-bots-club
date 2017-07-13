@@ -25,7 +25,7 @@ app.use(session({
 }))
 
 var port = process.env.PORT || 3000;
-var postgres = process.env
+
 
 app.listen(port, function() {
   console.log("Is this thing on?")
