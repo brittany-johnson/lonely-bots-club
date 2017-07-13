@@ -3,7 +3,7 @@
     "username": "brittanyjohnson",
     "password": null,
     "database": "gabble",
-    "host": "127.0.0.1",
+    "host": "https://brittany-test-app.herokuapp.com/",
     "dialect": "postgres"
   },
   "test": {
