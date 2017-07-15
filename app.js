@@ -7,6 +7,19 @@ var app = express();
 let user = false;
 var session = require('express-session');
 const userinfos = require('./models/userinfos');
+const posts = require('./models/posts');
+
+
+// models.posts.findOne().then(function(posts){
+//   include: [
+//     {
+//       models: models.userinfos,
+//       as: 'userinfos'
+//     }
+//   ]
+// }).then(function(posts) {
+//   console.log(posts)
+// })
 
 app.engine('mustache', mustache())
 app.set('view engine', 'mustache');
@@ -49,6 +62,9 @@ app.post("/usersignup", function(req, res) {
     .then(function(newuser) {
       console.log(newuser)
       res.redirect("/")
+    }).catch(function(error) {
+      console.log(error);
+      res.redirect("/signup");
     })
 })
 
@@ -103,6 +119,29 @@ app.get("/newgab", function(req, res) {
   } else {
     res.redirect('/login')
   }
+})
+
+app.post("/submitgab", function(req,res) {
+  const postBody = req.body.newgabInput;
+  const currentUser= session.user;
+  models.userinfos.findOne({
+    where: {
+      username: currentUser
+    }
+  }).then(function(gabAuthor) {
+    const createNewGab = models.posts.build({
+      body: postBody,
+      userid: gabAuthor.id
+
+    })
+    createNewGab.save()
+    .then(function(newgab) {
+      console.log(newgab)
+      res.redirect('/')
+    })
+  })
+
+
 })
 
 app.get("/likes", function(req, res) {
