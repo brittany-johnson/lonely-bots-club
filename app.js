@@ -9,18 +9,6 @@ var session = require('express-session');
 const userinfos = require('./models/userinfos');
 const posts = require('./models/posts');
 
-
-// models.posts.findOne().then(function(posts){
-//   include: [
-//     {
-//       models: models.userinfos,
-//       as: 'userinfos'
-//     }
-//   ]
-// }).then(function(posts) {
-//   console.log(posts)
-// })
-
 app.engine('mustache', mustache())
 app.set('view engine', 'mustache');
 
@@ -45,6 +33,7 @@ app.listen(port, function() {
 });
 
 //ROUTES/////////////////////////////////
+//signup.js
 
 app.get("/signup", function(req, res) {
 
@@ -68,6 +57,7 @@ app.post("/usersignup", function(req, res) {
     })
 })
 
+//login.js
 app.get("/login", function(req, res) {
 
   res.render('login')
@@ -95,6 +85,7 @@ app.post("/userlogin", function(req, res) {
     })
 })
 
+//index.js
 app.get("/", function(req, res) {
   console.log('were in')
   if (user === true)
@@ -102,17 +93,22 @@ app.get("/", function(req, res) {
       where: {
         username: session.user
       }
-    }).then(user => {
+    }).then(users => {
+      models.posts.findAll(
+      ).then(allData =>  {
+        // console.log(allData);
       res.render('homepage', {
-        username: user.username
+        username: users.username,
+        gabs: allData
+      })
       })
     })
-
   else {
     res.redirect('/login')
   }
 })
 
+//gabs.js
 app.get("/newgab", function(req, res) {
   if (user === true) {
     res.render('newgab')

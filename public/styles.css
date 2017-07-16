@@ -1,4 +1,4 @@
-body {
+.loginSignupBody {
   background-color: #DBE7E8;
   font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
    font-weight: 300;
@@ -78,4 +78,24 @@ margin-bottom: 2%;
     width: 50px;
     padding: 2px;
     border-radius: 4em;
+}
+
+
+.newGabBody {
+  background-color: #DBE7E8;
+  font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: 300;
+   display: flex;
+}
+/*Nav Bar*/
+.sideNav {
+  background-color: rgba(104, 139, 255, 0.5);
+  color: white;
+  width: 25%;
+}
+.profileImg {
+  width: 6em;
+height: 6em;
+background-color: white;
+border-radius: 50%;
 }

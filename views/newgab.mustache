@@ -3,8 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>Create a New Gab</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+  <body class="newGabBody">
+    <div class="sideNav">
+      <div class="profileImg">
+
+      </div>
+    <div class="navLinks">
+      <ul>
+      <li>{{username}}</li>
+      <a href="/newgab"><li>new gab</li></a>
+      <li>logout</li>
+      </ul>
+    </div>
+    </div>
 <form class="" action="/submitgab" method="post">
   <input type="text" name="newgabInput" placeholder="big brother sees everythings">
   <button type="submit" name="button">post new gab</button>
