@@ -111,7 +111,15 @@ app.get("/", function(req, res) {
 //gabs.js
 app.get("/newgab", function(req, res) {
   if (user === true) {
-    res.render('newgab')
+    models.userinfos.findOne({
+      where: {
+        username: session.user
+      }
+    }).then(users => {
+      res.render('newgab', {
+        username: users.username,
+      })
+    })
   } else {
     res.redirect('/login')
   }

@@ -13,14 +13,15 @@
     <div class="navLinks">
       <ul>
       <li>{{username}}</li>
-      <a href="/newgab"><li>new gab</li></a>
+      <a href="/"><li>home</li></a>
       <li>logout</li>
       </ul>
     </div>
     </div>
-<form class="" action="/submitgab" method="post">
-  <input type="text" name="newgabInput" placeholder="big brother sees everythings">
-  <button type="submit" name="button">post new gab</button>
+<form class="newGabForm" action="/submitgab" method="post">
+  <input type="text" name="newgabInput" class="gabInput" placeholder="big brother sees everythings">
+  <br>
+  <button type="submit" name="button" class="submitGabButton">post new gab</button>
 </form>
   </body>
 </html>

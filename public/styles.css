@@ -1,3 +1,6 @@
+* { box-sizing: border-box; margin: 0 auto; }
+img {   max-width: 100%; }
+
 .loginSignupBody {
   background-color: #DBE7E8;
   font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -80,22 +83,90 @@ margin-bottom: 2%;
     border-radius: 4em;
 }
 
+/*Homepage*/
+.homepageBody {
+  background-color: #DBE7E8;
+  font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: 300;
+   display: flex;
+}
 
+.eachGab {
+  height: 7em;
+  width: 28em;
+  box-shadow: -16px -1em 0px 0px #415496;
+  border: 0;
+  border-radius: 2em;
+  margin-top: 4em;
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  text-align: center;
+  background-color: white;
+  align-items: center;
+  font-size: 25px;
+}
+
+/*New Gab*/
 .newGabBody {
   background-color: #DBE7E8;
   font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
    font-weight: 300;
    display: flex;
 }
+
+.gabInput {
+  height: 10em;
+width: 20em;
+box-shadow: -20px -1em 0px 9px #415496;
+border: 0;
+border-radius: 2em;
+margin-top: 4em;
+display: flex;
+justify-content: center;
+font-size: 30px;
+outline-width: 0;
+text-align: center;
+}
+
+.submitGabButton{
+  display: flex;
+      border: none;
+      background-color: #688BFF;
+      padding: 5%;
+      border-radius: 10px;
+      justify-content: center;
+      width: 40%;
+      margin-top: 5%;
+      color: white;
+      font-size: 20px;
+}
 /*Nav Bar*/
 .sideNav {
   background-color: rgba(104, 139, 255, 0.5);
-  color: white;
-  width: 25%;
+width: 25%;
+display: flex;
+flex-direction: column;
+margin-left: 0%;
+margin-right: 0%;
+}
+.navLinks ul {
+  box-sizing: border-box;
+    margin: 0 auto;
+    list-style-type: none;
+    font-size: 25px;
+}
+.navLinks ul a {
+  text-decoration: none;
+      color: white;
+}
+.navLinks {
+  color:white;
 }
 .profileImg {
-  width: 6em;
-height: 6em;
-background-color: white;
-border-radius: 50%;
+  width: 10em;
+      height: 10em;
+      background-color: white;
+      border-radius: 50%;
+      margin-top: 8vh;
 }
