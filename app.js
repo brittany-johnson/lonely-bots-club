@@ -85,6 +85,12 @@ app.post("/userlogin", function(req, res) {
     })
 })
 
+app.post("/logout", function(req,res) {
+  req.session.destroy(function() {
+  res.redirect('/login');
+});
+})
+
 //index.js
 app.get("/", function(req, res) {
   console.log('were in')
