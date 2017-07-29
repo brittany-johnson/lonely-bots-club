@@ -14,6 +14,10 @@
     "dialect": "postgres"
   },
   "production": {
-    "use_env_variable": "DATABASE_URL"
-  }
+    "client": "postgresql",
+    "connection": {
+      "database": "gabble",
+      "key": "postgres://gysbeygyylxhzk:cd00c9c087bf0fa94f1e45d23ac5cc3fbce503bc819511aa2c2e91ad0e82cf36@ec2-54-163-254-143.compute-1.amazonaws.com:5432/dv0stubu0f41q"
+
+    }
 }

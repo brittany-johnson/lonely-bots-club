@@ -91,6 +91,7 @@ app.post("/logout", function(req,res) {
 });
 })
 
+
 //index.js
 app.get("/", function(req, res) {
   console.log('were in')
@@ -99,7 +100,8 @@ app.get("/", function(req, res) {
       where: {
         username: session.user
       }
-    }).then(users => {
+    })
+    .then(users => {
       models.posts.findAll(
       ).then(allData =>  {
         // console.log(allData);
