@@ -87,6 +87,7 @@ app.post("/userlogin", function(req, res) {
 
 app.post("/logout", function(req,res) {
   req.session.destroy(function() {
+    let user=false;
   res.redirect('/login');
 });
 })
