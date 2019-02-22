@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-  up: function (queryInterface, Sequelize) {
-    queryInterface.addConstraint('userinfos', ['username'], {
+  up: function(queryInterface, Sequelize) {
+    return queryInterface.addConstraint('userinfos', ['username'], {
     type: 'unique',
     name: 'custom_unique_constraint_username_'
   });

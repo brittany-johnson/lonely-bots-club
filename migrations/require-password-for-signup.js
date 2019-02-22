@@ -10,7 +10,7 @@ module.exports = {
     //     allowNull: false,
     //   }
     // ),
-    queryInterface.changeColumn(
+    return queryInterface.changeColumn(
       'userinfos',
       'password',
       {
