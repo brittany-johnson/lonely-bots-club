@@ -9,6 +9,7 @@ add new features, make it responsive, and improve the design and security!
 You can follow the project progress [here on this public Trello Board](https://trello.com/b/ca9t9vVA/gabble).
 
 [View Project Here](https://gabble-social.herokuapp.com/login)
+![current-app-state](https://github.com/brittany-johnson/Gabble_Forum/blob/master/progress-gifs/4-17-19-gabble.gif)
 
 ## Install
 
