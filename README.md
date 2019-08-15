@@ -27,3 +27,10 @@ You can follow the project progress [here on this public Trello Board](https://t
 * Create Gabble DB `createdb gabble`
 * `sequelize db:migrate`
 * Go to `localhost:3000` in your browser and *violia*!
+
+### Dependencies
+* [Node.js](https://nodejs.org)
+* [express](https://expressjs.com/)
+    - Framework for Node.js
+* [mustache](https://github.com/janl/mustache.js)
+    - Mustahe is a templating language. It is usefuul because it allows HTML to be dynamically updated based on responses from our web server.  

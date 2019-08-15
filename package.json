@@ -15,7 +15,6 @@
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.5.0",
-    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-sesesion": "^1.15.6",
     "mustache": "^2.3.0",

@@ -1,6 +1,5 @@
 const express = require('express');
 const mustache = require('mustache-express');
-const bodyParser = require('body-parser');
 const fs = require('fs');
 const models = require('./models');
 var app = express();
@@ -13,7 +12,7 @@ app.engine('mustache', mustache())
 app.set('view engine', 'mustache');
 
 app.use(express.static('public'))
-app.use(bodyParser.urlencoded({
+app.use(express.urlencoded({
   extended: false
 }));
 app.use(session({
