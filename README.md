@@ -30,7 +30,8 @@ You can follow the project progress [here on this public Trello Board](https://t
 
 ### Dependencies
 * [Node.js](https://nodejs.org)
+    - Write server side code with JavaScript 
 * [express](https://expressjs.com/)
     - Framework for Node.js
 * [mustache](https://github.com/janl/mustache.js)
-    - Mustahe is a templating language. It is usefuul because it allows HTML to be dynamically updated based on responses from our web server.  
+    - Mustahe is a templating language. It is useful because it allows HTML to be dynamically updated based on responses from our web server.  
