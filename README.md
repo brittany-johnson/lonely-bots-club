@@ -35,3 +35,7 @@ You can follow the project progress [here on this public Trello Board](https://t
     - Framework for Node.js
 * [mustache](https://github.com/janl/mustache.js)
     - Mustahe is a templating language. It is useful because it allows HTML to be dynamically updated based on responses from our web server.  
+
+## Run
+
+`npm run start`
