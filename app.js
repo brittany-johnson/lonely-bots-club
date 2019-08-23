@@ -45,35 +45,37 @@ app.use(session({ //express-session config object
     maxAge: SESS_LIFETIME,
     sameSite: true,
     secure: IN_PROD,
-    store: new SequelizeStore({
-      db: sequelize
-    }),
+    // store: new SequelizeStore({
+    //   db: sequelize
+    // }),
   }
 }))
 
+app.use(require('routes'));
+
 //index.js
-app.get("/", function(req, res) {
-  console.log('were in')
-  if (user === true)
-    models.userinfos.findOne({
-      where: {
-        username: session.user
-      }
-    })
-    .then(users => {
-      models.posts.findAll(
-      ).then(allData =>  {
-        // console.log(allData);
-      res.render('homepage', {
-        username: users.username,
-        gabs: allData
-      })
-      })
-    })
-  else {
-    res.redirect('/login')
-  }
-})
+// app.get("/", function(req, res) {
+//   console.log('were in')
+//   if (user === true)
+//     models.userinfos.findOne({
+//       where: {
+//         username: session.user
+//       }
+//     })
+//     .then(users => {
+//       models.posts.findAll(
+//       ).then(allData =>  {
+//         // console.log(allData);
+//       res.render('homepage', {
+//         username: users.username,
+//         gabs: allData
+//       })
+//       })
+//     })
+//   else {
+//     res.redirect('/login')
+//   }
+// })
 
 
 
