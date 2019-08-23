@@ -7,6 +7,7 @@ var app = express();
 
 var session = require('express-session');
 const mustache = require('mustache-express');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const fs = require('fs');
 
 const models = require('./models');
@@ -16,8 +17,15 @@ const posts = require('./models/posts');
 app.engine('mustache', mustache())
 app.set('view engine', 'mustache');
 
-const PORT = process.env.PORT || 3000;
+//defined in .env
+const {
+  PORT,
+  SESS_LIFETIME,
+  NODE_ENV,
+  SESS_SECRET,
+} = process.env
 
+const IN_PROD = NODE_ENV === 'production';
 
 app.listen(PORT, () => 
   console.log(`http://localhost:${PORT}`)
@@ -27,12 +35,19 @@ app.use(express.static('public'))
 app.use(express.urlencoded({
   extended: false
 }));
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
+
+app.use(session({ //express-session config object
+  name: 'sessionID',
+  resave: false, //don't save if not modifed 
+  saveUninitialized: false,
+  secret: SESS_SECRET,
   cookie: {
-    secure: true
+    maxAge: SESS_LIFETIME,
+    sameSite: true,
+    secure: IN_PROD,
+    store: new SequelizeStore({
+      db: sequelize
+    }),
   }
 }))
 
