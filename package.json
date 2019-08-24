@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "sequelize db:migrate"
   },
@@ -15,6 +15,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "async": "^3.1.0",
     "bluebird": "^3.5.5",
     "connect-session-sequelize": "^6.0.0",
     "dotenv": "^8.1.0",
@@ -24,7 +25,7 @@
     "mustache-express": "^1.2.8",
     "mysql2": "^1.6.5",
     "pg": "^6.4.0",
-    "sequelize": "^4.44.2"
+    "sequelize": "^4.44.3"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"

@@ -2,14 +2,13 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
-const express = require('express');
-var app = express();
-
+const app = require('express')();
 var session = require('express-session');
 const mustache = require('mustache-express');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const fs = require('fs');
 
+const routes = require('./routes');
 const models = require('./models');
 const userinfos = require('./models/userinfos');
 const posts = require('./models/posts');
@@ -51,7 +50,8 @@ app.use(session({ //express-session config object
   }
 }))
 
-app.use(require('routes'));
+app.use('/', routes);
+
 
 //index.js
 // app.get("/", function(req, res) {

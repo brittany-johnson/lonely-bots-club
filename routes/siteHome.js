@@ -1,8 +1,10 @@
-const express = require('express');
-var app = express();
+// const express = require('express');
+// var app = express();
+const router = require('express').Router();
 
-app.get("/", function(req, res) {
-    console.log('were in')
+
+router.get("/", function(req, res) {
+  console.log('were in')
     if (user === true)
       models.userinfos.findOne({
         where: {
@@ -21,5 +23,7 @@ app.get("/", function(req, res) {
       })
     else {
       res.redirect('/login')
-    }
-  })
+  }
+});
+
+  module.exports = router;
