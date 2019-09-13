@@ -25,6 +25,7 @@ You can follow the project progress [here on this public Trello Board](https://t
 `git clone https://github.com/brittany-johnson/Gabble_Forum.git`
 * `npm install` to install app dependencies
 * Create Gabble DB `createdb gabble`
+* Update username in `config.json`
 * `sequelize db:migrate`
 * Go to `localhost:3000` in your browser and *violia*!
 
