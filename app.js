@@ -10,6 +10,10 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const fs = require('fs');
 
 const siteHome = require('./routes/siteHome');
+const login = require('./routes/login');
+const newgab = require('./routes/newgab');
+const signup = require('./routes/signup');
+
 const models = require('./models');
 const userinfos = require('./models/userinfos');
 const posts = require('./models/posts');
@@ -38,19 +42,14 @@ app.use(express.urlencoded({
 
 //express-session config object
 app.use(session({ 
-  name: 'sessionID',
   resave: false, //don't save if not modifed 
   saveUninitialized: false,
   secret: SESS_SECRET,
   cookie: {
-    // maxAge: SESS_LIFETIME,
     sameSite: true,
     secure: IN_PROD,
-    // store: new SequelizeStore({
-    //   db: sequelize
-    // }),
   }
 }))
 
-app.use('./siteHome', siteHome);
+app.use('/', siteHome, login, newgab, signup);
 
