@@ -11,14 +11,19 @@ module.exports = (sequelize, DataTypes) => {
     body: DataTypes.STRING,
   }, {});
   Post.associate = function(models) {
-    Posts.belongsTo(models.User, {
+    Posts.belongsTo(models.Users, {
       as: 'author',
       foreignKey: 'UserId'
     });
-    Post.belongsTo(models.Club, {
+    Post.belongsTo(models.Clubs, {
       as: 'post',
       foreignKey: 'ClubId'
     });
+    Post.belongsToMany(models.Users, {
+      as: 'likes',
+      through: 'Likes',
+      foreignKey: 'PostId',
+    })
   };
   return Post;
 };

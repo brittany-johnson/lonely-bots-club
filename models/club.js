@@ -4,10 +4,15 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING
   }, {});
   Club.associate = function(models) {
-    Club.hasOne(model.User, {
+    Club.hasOne(model.Users, {
       as: 'founder',
       foreignKey: 'ClubId'
     });
+    Club.belongsToMany(model.Users, {
+      as: 'members',
+      through: 'Membership',
+      foreignKey: 'ClubId'
+    })
   };
   return Club;
 };
