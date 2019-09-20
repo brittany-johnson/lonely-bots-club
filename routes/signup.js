@@ -11,7 +11,7 @@ router.post("/usersignup", function(req, res) {
   const passwordInput = req.body.password;
   const usernameInput = req.body.username;
 
-  const signup = models.userinfos.build({
+  const signup = models.User.build({
     username: usernameInput,
     password: passwordInput
   })

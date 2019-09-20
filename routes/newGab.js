@@ -5,7 +5,7 @@ var session = require('express-session');
 
 router.get("/newgab", function(req, res) {
   if (session.user) {
-    models.userinfos.findOne({
+    models.User.findOne({
       where: {
         username: session.user
       }
@@ -23,12 +23,12 @@ router.post("/submitgab", function(req,res) {
   const postBody = req.body.newgabInput;
   const currentUser= session.user;
 
-  models.userinfos.findOne({
+  models.User.findOne({
     where: {
       username: currentUser
     }
   }).then(function(gabAuthor) {
-    const createNewGab = models.posts.build({
+    const createNewGab = models.Posts.build({
       body: postBody,
       userid: gabAuthor.id
 

@@ -8,6 +8,7 @@ var session = require('express-session');
 const mustache = require('mustache-express');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const fs = require('fs');
+var validate = require('validator');
 
 const siteHome = require('./routes/siteHome');
 const login = require('./routes/login');
@@ -15,8 +16,8 @@ const newgab = require('./routes/newgab');
 const signup = require('./routes/signup');
 
 const models = require('./models');
-const userinfos = require('./models/userinfos');
-const posts = require('./models/posts');
+const user = require('./models/user');
+const posts = require('./models/post');
 
 app.engine('mustache', mustache());
 app.set('view engine', 'mustache');

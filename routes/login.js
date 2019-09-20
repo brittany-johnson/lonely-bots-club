@@ -10,7 +10,7 @@ router.get("/login", function(req, res) {
 router.post("/userlogin", function(req, res) {
   const usernameInput = req.body.username;
   const passwordInput = req.body.password;
-  const login = models.userinfos.findOne({
+  const login = models.User.findOne({
       where: {
         username: usernameInput,
         password: passwordInput

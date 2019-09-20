@@ -6,13 +6,13 @@ var session = require('express-session');
 router.get("/", function(req, res) {
   console.log('were in')
     if (session.user)
-      models.userinfos.findOne({
+      models.User.findOne({
         where: {
           username: session.user
         }
       })
       .then(users => {
-        models.posts.findAll(
+        models.Posts.findAll(
         ).then(allData =>  {
         res.render('homepage', {
           username: users.username,

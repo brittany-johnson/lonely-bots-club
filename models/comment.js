@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Post = sequelize.define('Posts', {
+  const Comment = sequelize.define('Comments', {
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
@@ -8,17 +8,17 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       autoIncrement: false,
     },
-    body: DataTypes.STRING,
+    body: DataTypes.STRING
   }, {});
-  Post.associate = function(models) {
-    Posts.belongsTo(models.User, {
+  Comment.associate = function(models) {
+    Comment.belongsTo(models.User, {
       as: 'author',
       foreignKey: 'UserId'
     });
-    Post.belongsTo(models.Club, {
-      as: 'post',
-      foreignKey: 'ClubId'
+    Comment.belongsTo(models.Post, {
+      as: 'comment',
+      foreignKey: 'PostId'
     });
   };
-  return Post;
+  return Comment;
 };
