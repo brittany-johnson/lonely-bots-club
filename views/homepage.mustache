@@ -1,32 +1,24 @@
-{{! rename to userHome }}
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body class="homepageBody">
     <div class="sideNavHome">
-      <div class="profileImg">
-
+      <div class="profileImg"></div>
+        <div class="navLinks">
+          <ul>
+            <li>{{username}}</li>
+            <form class="" action="/logout" method="post">
+              <button type="submit" name="button" class="logoutButton"><li>logout</li></button>
+            </form>
+          </ul>
+        </div>
       </div>
-    <div class="navLinks">
-      <ul>
-      <li>{{username}}</li>
-      <a href="/newgab"><li>new gab</li></a>
-      <form class="" action="/logout" method="post">
-        <button type="submit" name="button" class="logoutButton"><li>logout</li></button>
-      </form>
-      </ul>
     </div>
-    </div>
-<div class="gabsSection">
-  {{#gabs}}
-  <ul>
-    <li class="eachGab">{{body}}</li>
-  </ul>
-  {{/gabs}}
-</div>
+    <a href="/club/roster">Click here to join clubs and start seeing posts on your homepage!</a>
   </body>
 </html>

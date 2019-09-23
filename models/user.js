@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('User', {
+  const User = sequelize.define('Users', {
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
@@ -11,9 +11,9 @@ module.exports = (sequelize, DataTypes) => {
     username: {
       type: DataTypes.STRING,
       unique: true,
+      allowNull: false,
       validate: {
         len: [2,20],
-        allowNull: false,
       }
     },
     password: {
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     profilepic: {
       type: DataTypes.STRING,
-    }
+    },
   }, {});
   User.associate = function(models) {
     User.belongsToMany(models.Posts, {

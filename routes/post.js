@@ -3,7 +3,7 @@ var router = express.Router();
 const models = require('../models');
 var session = require('express-session');
 
-router.get("/newgab", function(req, res) {
+router.get("/createpost", function(req, res) {
   if (session.user) {
     models.User.findOne({
       where: {
@@ -19,7 +19,7 @@ router.get("/newgab", function(req, res) {
   }
 });
 
-router.post("/submitgab", function(req,res) {
+router.post("/submitpost", function(req,res) {
   const postBody = req.body.newgabInput;
   const currentUser= session.user;
 

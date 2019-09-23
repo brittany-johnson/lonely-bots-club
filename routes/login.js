@@ -10,18 +10,17 @@ router.get("/login", function(req, res) {
 router.post("/userlogin", function(req, res) {
   const usernameInput = req.body.username;
   const passwordInput = req.body.password;
-  const login = models.User.findOne({
+  const login = models.Users.findOne({
       where: {
         username: usernameInput,
         password: passwordInput
       }
     })
-
     .then(function(checkuser) {
-      console.log("Hey this works" + checkuser)
+      console.log("Hey this works " + checkuser.username)
       if (checkuser != null) {
         session.user = checkuser.username;
-        res.redirect('/')
+        res.redirect('/home')
       } else {
         res.redirect('/login')
       }

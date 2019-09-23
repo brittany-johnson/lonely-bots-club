@@ -11,14 +11,14 @@ router.post("/usersignup", function(req, res) {
   const passwordInput = req.body.password;
   const usernameInput = req.body.username;
 
-  const signup = models.User.build({
+  const signup = models.Users.build({
     username: usernameInput,
     password: passwordInput
   })
   signup.save()
     .then(function(newuser) {
-      console.log("welcom" + newuser)
-      res.redirect("/")
+      console.log("welcome" + newuser.username)
+      res.redirect("/home")
     }).catch(function(error) {
       console.log(error);
       res.redirect("/signup");

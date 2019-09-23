@@ -1,5 +1,97 @@
-* { box-sizing: border-box; margin: 0 auto; }
-img {   max-width: 100%; }
+* { 
+  box-sizing: border-box; 
+  margin: 0 auto; 
+}
+
+:root {
+  --G1: #F5F8FA;
+  --O1: #F2850F;
+  --B1: #55ACEE;
+  --W:  #FFFFFF;
+  --R1: #DD2E44;
+  --BLK:#000000;
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.div-bkgd {
+  background-color: var(--G1);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 1rem;
+  border-radius: 2rem;
+}
+
+.welcome-txt {
+  color: var(--O1);
+  font-size: 2rem;
+  margin: 2rem;
+}
+
+.btn {
+  background-color: var(--B1);
+  color: var(--W);
+  text-decoration: none;
+  padding: 1rem;
+  margin: 2rem;
+  border-radius: 1rem;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.login-signup-header {
+  color: var(--O1);
+}
+
+input::placeholder {
+  color: red;
+}
+
+@media screen and (min-width: 380px) {}
+@media screen and (min-width: 390px) {}
+@media screen and (min-width: 500px) {}
+@media screen and (max-width: 550px) {}
+@media screen and (min-width: 580px) {}
+@media screen and (min-width: 820px) {}
+@media screen and (min-width: 880px) {}
+@media screen and (max-width: 900px) {}
+@media screen and (min-width: 950px) {}
+@media screen and (min-width: 1250px) {}
+
+
+/*********/
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}
+
+/* img {   max-width: 100%; }
 
 .signupLoginButt {
   display: flex;
@@ -214,4 +306,4 @@ margin-right: 0%;
     color: white;
     font-size: 32px;
     padding: 0;
-}
+} */

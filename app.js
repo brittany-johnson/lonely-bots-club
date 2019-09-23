@@ -10,14 +10,12 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const fs = require('fs');
 var validate = require('validator');
 
-const siteHome = require('./routes/siteHome');
+const home = require('./routes/home');
 const login = require('./routes/login');
-const newgab = require('./routes/newgab');
+const post = require('./routes/post');
 const signup = require('./routes/signup');
-
-const models = require('./models');
-const user = require('./models/user');
-const posts = require('./models/post');
+const club = require('./routes/club');
+const landing = require('./routes/landing');
 
 app.engine('mustache', mustache());
 app.set('view engine', 'mustache');
@@ -36,7 +34,7 @@ app.listen(PORT, () =>
   console.log(`http://localhost:${PORT}`)
 );
 
-app.use(express.static('public'))
+app.use('/public', express.static(__dirname + "/public"));
 app.use(express.urlencoded({
   extended: false
 }));
@@ -52,5 +50,6 @@ app.use(session({
   }
 }))
 
-app.use('/', siteHome, login, newgab, signup);
+app.use('/', landing, signup, login, home, post);
+app.use('/club', club);
 
