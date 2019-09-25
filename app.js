@@ -50,6 +50,6 @@ app.use(session({
   }
 }))
 
-app.use('/', landing, signup, login, home, post);
-app.use('/club', club);
+app.use('/', landing, signup, login, home);
+app.use('/club', club, post);
 

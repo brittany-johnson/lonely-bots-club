@@ -6,7 +6,7 @@ var session = require('express-session');
 /*
 
 /club/create
-/club/:clubId
+/club/:clubname
 /club/roster
 /club/:clubId/:postId/comment
 
@@ -40,8 +40,19 @@ router.get('/roster', (req,res) => {
         })
 })
 
-router.get('/:clubName', (req,res) => {
-    res.send("hello boop beep");
+router.get('/:clubId', (req,res) => {
+    const clubId = req.params.clubId.replace(/id=/, '');
+    models.Posts.findAll({
+        where: {
+            ClubId: clubId
+        }
+    })
+        .then(clubPosts => {
+            res.render('club-home', {
+                posts: clubPosts,
+                id: req.params.clubId
+            })
+        })
 })
 
 module.exports = router;

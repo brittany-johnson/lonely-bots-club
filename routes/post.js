@@ -3,42 +3,48 @@ var router = express.Router();
 const models = require('../models');
 var session = require('express-session');
 
-router.get("/createpost", function(req, res) {
+router.get("/createpost/:clubId", function(req, res) {
+  const clubId = req.params.clubId.replace(/id=/, '');
   if (session.user) {
-    models.User.findOne({
+    models.Users.findOne({
       where: {
         username: session.user
       }
-    }).then(users => {
-      res.render('newgab', {
-        username: users.username,
-      })
+    })
+    .then(() => {
+      res.render('create-post', {
+        id: clubId
+      });
     })
   } else {
     res.redirect('/login')
   }
 });
 
-router.post("/submitpost", function(req,res) {
-  const postBody = req.body.newgabInput;
+router.post("/submitpost", (req,res) => {
+  const postBody = req.body.newpostInput;
+  const clubId = req.body.ClubId;
   const currentUser= session.user;
 
-  models.User.findOne({
+  console.log("works here")
+
+  models.Users.findOne({
     where: {
       username: currentUser
     }
-  }).then(function(gabAuthor) {
-    const createNewGab = models.Posts.build({
+  }).then( author => {
+    const createNewPost = models.Posts.build({
       body: postBody,
-      userid: gabAuthor.id
-
+      UserId: author.id,
+      ClubId: clubId
     })
-    createNewGab.save()
-    .then(function(newgab) {
-      console.log(newgab)
-      res.redirect('/')
+    createNewPost.save()
+      .then(() => {
+        res.redirect('/');
+    }).catch((error) => {
+      console.log(error);
+      })
     })
-  })
 });
 
 module.exports = router;

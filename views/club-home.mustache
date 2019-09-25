@@ -6,13 +6,13 @@
     <title>Club Roster</title>
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body class="homepageBody">
+  <body class="">
     <div>
         <a href="/club/create">create a club</a>
-        {{#clubs}}
-          <a href="id={{id}}">{{name}}</a>
-        {{/clubs}}
+        <a href="/club/createpost/{{id}}">create a post</a>
+        {{#posts}}
+            {{body}}
+        {{/posts}}
     </div>
   </body>
-  <script src="/public/helpers.js"></script>
 </html>

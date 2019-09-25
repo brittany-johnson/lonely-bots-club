@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a New Post</title>
+    <link rel="stylesheet" href="./public/styles.css">
+  </head>
+  <body>
+    <form action="/club/submitpost" method="post">
+      <input type="text" name="newpostInput" placeholder="type here">
+      <input type="hidden" value={{id}} name="ClubId" />
+      <button type="submit" name="button" class="submitGabButton">submit</button>
+    </form>
+  </body>
+</html>
