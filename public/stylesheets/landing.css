@@ -1,0 +1,97 @@
+* { 
+    box-sizing: border-box; 
+    margin: 0 auto; 
+  }
+  
+  :root {
+    --G1: #F5F8FA;
+    --O1: #F2850F;
+    --B1: #55ACEE;
+    --W:  #FFFFFF;
+    --R1: #DD2E44;
+    --BLK:#000000;
+    font-family: "Arial Black", Gadget, sans-serif;
+  }
+  button#like-btn {
+    background-image: url(/public/icons/unlike.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    /* put the height and width of your image here */
+    height: 50px;
+    width: 200px;
+    border: none;
+}
+  
+  #logo.logo-horizontal > img {
+    max-width: 50vw;
+    max-height: 25vh;
+  }
+  
+  #logo.logo-horizontal{
+    display: flex;
+    margin-bottom: 2rem;
+  }
+  
+  .div-bkgd {
+    background-color: var(--G1);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 1rem;
+    border-radius: 2rem;
+  }
+  
+  .welcome-txt {
+    color: var(--O1);
+    font-size: 2rem;
+    margin: 2rem;
+  }
+  
+  .btn {
+    background-color: var(--B1);
+    color: var(--W);
+    text-decoration: none;
+    padding: 1rem;
+    margin: 2rem;
+    border-radius: 1rem;
+    font-size: 3rem;
+    text-align: center;
+  }
+  
+  .login-signup-header {
+    color: var(--O1);
+  }
+  
+  input::placeholder {
+    color: red;
+  }
+  
+  /* Extra small devices (phones, less than 768px) */
+  /* No media query since this is the default in Bootstrap */
+  
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) { }
+  
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    .landing-body {
+        display: flex;
+        flex-direction: column;
+        /* padding-top: 20vh; */
+    }
+    #logo.logo-horizontal > img {
+        max-width: 50vw;
+        max-height: 40vh;
+      }
+    #welcome-signup-login {
+        width: 50vw;
+        margin-left: 25vw;
+    }
+   }
+  
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) { }
+  
+  /* img {   max-width: 100%; }
+
+  

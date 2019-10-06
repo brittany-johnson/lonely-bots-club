@@ -4,15 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club Roster</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./public/index.css">
   </head>
   <body class="">
     <div>
         <a href="/club/create">create a club</a>
-        <a href="/club/createpost/{{id}}">create a post</a>
-        {{#posts}}
+        <a href="/club/createpost/{{clubid}}">create a post</a>
+        <div>
+          {{#posts}}
             {{body}}
-        {{/posts}}
+            <form action="/like/{{id}}" method="post">
+              <input type="hidden" name="postid" value="{{id}}">
+              <button type="submit" formmethod="post" id="like-btn">Like</button>
+            </form>
+          {{/posts}}
+        </div>
     </div>
   </body>
 </html>

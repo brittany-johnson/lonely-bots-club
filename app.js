@@ -9,6 +9,7 @@ const mustache = require('mustache-express');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const fs = require('fs');
 var validate = require('validator');
+const path = require('path');
 
 const home = require('./routes/home');
 const login = require('./routes/login');
@@ -34,7 +35,8 @@ app.listen(PORT, () =>
   console.log(`http://localhost:${PORT}`)
 );
 
-app.use('/public', express.static(__dirname + "/public"));
+// app.use('/public', express.static(__dirname + "/public"));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({
   extended: false
 }));
@@ -50,6 +52,5 @@ app.use(session({
   }
 }))
 
-app.use('/', landing, signup, login, home);
-app.use('/club', club, post);
+app.use('/', landing, signup, login, home, club, post);
 

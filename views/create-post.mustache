@@ -4,12 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create a New Post</title>
-    <link rel="stylesheet" href="./public/styles.css">
+    <link rel="stylesheet" href="./public/index.css">
   </head>
   <body>
-    <form action="/club/submitpost" method="post">
+    <form action="/club/submitpost/{{id}}" method="post">
       <input type="text" name="newpostInput" placeholder="type here">
-      <input type="hidden" value={{id}} name="ClubId" />
       <button type="submit" name="button" class="submitGabButton">submit</button>
     </form>
   </body>

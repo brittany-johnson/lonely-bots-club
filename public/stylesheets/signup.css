@@ -1,0 +1,214 @@
+.signupLoginButt {
+    display: flex;
+  border: none;
+  background-color: #688BFF;
+  padding: 5%;
+  border-radius: 50px;
+  width: 25%;
+  margin-top: 4%;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-right: 1px;
+  
+  }
+  
+  .signupLoginButt a {
+    color: white;
+  text-decoration: none;
+  }
+  
+  .loginHeaderSpan {
+    display: flex;
+  }
+  .loginSignupBody {
+    background-color: #DBE7E8;
+    font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+     font-weight: 300;
+     color: #95989A;
+     display: flex;
+    justify-content: center;
+  }
+  
+  .login {
+    display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  }
+  
+  .userInfoInput {
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+  .loginHeader {
+    color: #DBE7E8;
+      display: flex;
+      justify-content: center;
+      font-size: 50px;
+      margin: 5%;
+      margin-bottom: 2%;
+          margin-left: 325px;
+  }
+  .loginBlock {
+    background-color: #688BFF;
+    width: 50em;
+        height: 30em;
+        border-radius: 4em;
+        box-shadow: 40px 20px 0px #415496;
+            margin-top: 5%;
+  }
+  
+  .loginInput {
+    background-color: #DBE7E8;
+      border: none;
+      border-radius: 10px;
+      display: flex;
+      padding: 5%;
+      width: 20em;
+      margin-bottom: 5%;
+      margin-top: 5%;
+      font-size: 20px;
+  }
+  
+  .loginbutt {
+    display: flex;
+      border: none;
+      background-color: #DBE7E8;
+      padding: 5%;
+      border-radius: 10px;
+      justify-content: center;
+      width: 30%;
+      margin-top: 5%;
+      color: #717475;
+      font-size: 20px;
+  }
+  
+  .signupInput {
+    background-color: #DBE7E8;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    padding: 6%;
+    width: 20em;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    font-size: 15px;
+  }
+  
+  .signupHeader.a {
+    display: flex;
+      background-color: #688BFF;
+      width: 50px;
+      padding: 2px;
+      border-radius: 4em;
+  }
+  
+  /*Homepage*/
+  .homepageBody {
+    background-color: #DBE7E8;
+    font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+     font-weight: 300;
+     display: flex;
+  }
+  
+  .eachGab {
+    height: 7em;
+    width: 28em;
+    box-shadow: -16px -1em 0px 0px #415496;
+    border: 0;
+    border-radius: 2em;
+    margin-top: 4em;
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    text-align: center;
+    background-color: white;
+    align-items: center;
+    font-size: 25px;
+  }
+  
+  .navLinks ul li {
+        padding-bottom: 1em;
+  }
+  
+  /*New Gab*/
+  .newGabBody {
+    background-color: #DBE7E8;
+    font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+     font-weight: 300;
+     display: flex;
+  }
+  
+  .gabInput {
+    height: 10em;
+  width: 20em;
+  box-shadow: -20px -1em 0px 9px #415496;
+  border: 0;
+  border-radius: 2em;
+  margin-top: 4em;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  outline-width: 0;
+  text-align: center;
+  }
+  
+  .submitGabButton{
+    display: flex;
+        border: none;
+        background-color: #688BFF;
+        padding: 5%;
+        border-radius: 10px;
+        justify-content: center;
+        width: 40%;
+        margin-top: 5%;
+        color: white;
+        font-size: 20px;
+  }
+  /*Nav Bar*/
+  .sideNav {
+    background-color: rgba(104, 139, 255, 0.5);
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0%;
+  margin-right: 0%;
+  height: 50em;
+  }
+  .sideNavHome {
+    background-color: rgba(104, 139, 255, 0.5);
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0%;
+  margin-right: 0%;
+  }
+  .navLinks ul {
+    box-sizing: border-box;
+      margin: 0 auto;
+      list-style-type: none;
+      margin-top: 40%;
+      font-size: 35px;
+  }
+  .navLinks ul a {
+    text-decoration: none;
+        color: white;
+  }
+  .navLinks {
+    color:white;
+  }
+  .profileImg {
+    width: 10em;
+        height: 10em;
+        background-color: white;
+        border-radius: 50%;
+        margin-top: 8vh;
+  }
+  .logoutButton {
+    border: none;
+      background-color: rgb(161, 185, 244);
+      color: white;
+      font-size: 32px;
+      padding: 0;
+  } 

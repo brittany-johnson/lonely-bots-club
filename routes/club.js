@@ -12,15 +12,27 @@ var session = require('express-session');
 
 */
 
-router.get('/create', (req,res) => {
+
+router.get('/club/roster', (req,res) => {
+    models.Clubs.findAll()
+        .then(clubList => {
+            res.render('club-roster', {
+                clubs: clubList,
+            })
+        })
+});
+
+router.get('/club/create', (req,res) => {
+    //for some reason this cannot appear bellow the :clubId route need to investigate 
     res.render('create-club');
 });
-router.post('/create-club', (req, res) => {
+
+router.post('/club/create-club', (req, res) => {
     const clubName = req.body.clubName;
     const clubInfo = req.body.clubInfo;
 
     const club = models.Clubs.build({
-        clubname: clubName,
+        name: clubName,
         clubinfo: clubInfo
     })
     club.save()
@@ -31,16 +43,7 @@ router.post('/create-club', (req, res) => {
         })
 });
 
-router.get('/roster', (req,res) => {
-    models.Clubs.findAll()
-        .then(clubList => {
-            res.render('club-roster', {
-                clubs: clubList,
-            })
-        })
-})
-
-router.get('/:clubId', (req,res) => {
+router.get('/club/:clubId', (req,res) => {
     const clubId = req.params.clubId.replace(/id=/, '');
     models.Posts.findAll({
         where: {
@@ -50,9 +53,9 @@ router.get('/:clubId', (req,res) => {
         .then(clubPosts => {
             res.render('club-home', {
                 posts: clubPosts,
-                id: req.params.clubId
+                clubid: req.params.clubId
             })
         })
-})
+});
 
 module.exports = router;
