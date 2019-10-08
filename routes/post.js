@@ -3,7 +3,7 @@ var router = express.Router();
 const models = require('../models');
 var session = require('express-session');
 
-router.get("/club/createpost/:clubId", function(req, res) {
+router.get("/createpost/:clubId", function(req, res) {
   const clubId = req.params.clubId.replace(/id=/, '');
   if (session.user) {
     models.Users.findOne({
@@ -11,7 +11,8 @@ router.get("/club/createpost/:clubId", function(req, res) {
         username: session.user
       }
     })
-    .then(() => {
+    .then((user) => {
+      console.log(user);
       res.render('create-post', {
         id: clubId
       });
@@ -21,7 +22,7 @@ router.get("/club/createpost/:clubId", function(req, res) {
   }
 });
 
-router.post("/club/submitpost/:clubId", (req,res) => {
+router.post("/submitpost/:clubId", (req,res) => {
   const postBody = req.body.newpostInput;
   const clubId = req.params.clubId.replace(/id=/, '');
   const currentUser= session.user;
@@ -36,7 +37,8 @@ router.post("/club/submitpost/:clubId", (req,res) => {
     const createNewPost = models.Posts.build({
       body: postBody,
       UserId: author.id,
-      ClubId: clubId
+      ClubId: clubId,
+      Author: author.username
     })
     createNewPost.save()
       .then(() => {

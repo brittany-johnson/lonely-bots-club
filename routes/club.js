@@ -13,7 +13,8 @@ var session = require('express-session');
 */
 
 
-router.get('/club/roster', (req,res) => {
+
+router.get('/roster', (req,res) => {
     models.Clubs.findAll()
         .then(clubList => {
             res.render('club-roster', {
@@ -22,12 +23,12 @@ router.get('/club/roster', (req,res) => {
         })
 });
 
-router.get('/club/create', (req,res) => {
+router.get('/create', (req,res) => {
     //for some reason this cannot appear bellow the :clubId route need to investigate 
     res.render('create-club');
 });
 
-router.post('/club/create-club', (req, res) => {
+router.post('/create-club', (req, res) => {
     const clubName = req.body.clubName;
     const clubInfo = req.body.clubInfo;
 
@@ -43,7 +44,7 @@ router.post('/club/create-club', (req, res) => {
         })
 });
 
-router.get('/club/:clubId', (req,res) => {
+router.get('/:clubId', (req,res) => {
     const clubId = req.params.clubId.replace(/id=/, '');
     models.Posts.findAll({
         where: {

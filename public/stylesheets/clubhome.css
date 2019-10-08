@@ -7,7 +7,6 @@ button#like-btn {
     background-image: url(/public/icons/unlike.png);
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    /* put the height and width of your image here */
     height: 50px;
     width: 200px;
     border: none;

@@ -12,11 +12,8 @@ router.get("/home", function(req, res) {
         }
       })
       .then(users => {
-        models.Posts.findAll(
-        ).then(allData =>  {
         res.render('homepage', {
           username: users.username,
-        })
         })
       })
     else {

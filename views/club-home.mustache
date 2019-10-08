@@ -4,16 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club Roster</title>
-    <link rel="stylesheet" href="./public/index.css">
+    <link rel="stylesheet" type="text/css" href="./public/index.css" >
   </head>
   <body class="">
     <div>
+    <div id="logo" class="logo-horizontal">
+            <img src="./public/icons/logoHorizontal.png" alt="Lonley Bots Club Logo">
+        </div>
         <a href="/club/create">create a club</a>
         <a href="/club/createpost/{{clubid}}">create a post</a>
         <div>
           {{#posts}}
             {{body}}
-            <form action="/like/{{id}}" method="post">
+            {{Author}}
+            <form action="/club/like/{{id}}" method="post">
               <input type="hidden" name="postid" value="{{id}}">
               <button type="submit" formmethod="post" id="like-btn">Like</button>
             </form>
