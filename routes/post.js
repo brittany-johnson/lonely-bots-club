@@ -22,6 +22,56 @@ router.get("/createpost/:clubId", function(req, res) {
   }
 });
 
+router.get("/:postId/comments", (req, res) => {
+  const postId = req.params.postId.replace(/id=/, '');
+  //check auth
+  models.Posts.findOne({
+    where: {
+      id: postId
+    }
+  })
+    .then(post => {
+      models.Comments.findAll({
+        where: {
+          PostId: postId
+        }
+      })
+      .then(comments => {
+        res.render('post-comments', {
+          post: post,
+          id: postId,
+          comments: comments
+        });
+      })
+    })
+})
+
+router.post("/submitcomment/:postId", (req, res) => {
+  const postId = req.params.postId.replace(/id=/, '');
+  const commentBody = req.body.commentBody;
+  const currentUser= session.user;
+
+  models.Users.findOne({
+    where: {
+      username: currentUser
+    }
+  })
+    .then(author => {
+      const createNewComment = models.Comments.build({
+        body: commentBody,
+        PostId: postId,
+        UserId: author.id,
+        author: author.username
+      })
+      createNewComment.save()
+      .then(() => {
+        res.redirect('/submitcomment/:postId');
+        }).catch((error) => {
+          console.log(error);
+      })
+    })
+});
+
 router.post("/submitpost/:clubId", (req,res) => {
   const postBody = req.body.newpostInput;
   const clubId = req.params.clubId.replace(/id=/, '');
@@ -106,5 +156,7 @@ router.post('/like/:postId', (req, res) => {
     })
    
 });
+
+
 
 module.exports = router;

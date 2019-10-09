@@ -8,7 +8,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       autoIncrement: false,
     },
-    body: DataTypes.STRING
+    body: DataTypes.STRING,
+    author: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   }, {});
   Comment.associate = function(models) {
     Comment.belongsTo(models.Users, {
