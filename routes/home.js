@@ -14,6 +14,7 @@ router.get("/home", function(req, res) {
       .then(users => {
         res.render('homepage', {
           username: users.username,
+          id: users.id
         })
       })
     else {

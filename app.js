@@ -18,6 +18,7 @@ const post = require('./routes/post');
 const signup = require('./routes/signup');
 const club = require('./routes/club');
 const landing = require('./routes/landing');
+const usersettings = require('./routes/userSettings');
 
 
 app.engine('mustache', mustache());
@@ -57,5 +58,5 @@ app.listen(PORT, () =>
   console.log(`http://localhost:${PORT}`)
 );
 
-app.use('/', landing, signup, login, home, post);
+app.use('/', landing, signup, login, home, post, usersettings);
 app.use('/club', club, post);
