@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     profilepic: {
-      type: DataTypes.STRING,
+      type: DataTypes.BLOB,
     },
   }, {});
   User.associate = function(models) {
