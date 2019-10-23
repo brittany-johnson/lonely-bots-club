@@ -6,7 +6,9 @@
   "scripts": {
     "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "sequelize db:migrate"
+    "postinstall": "sequelize db:migrate",
+    "scss": "sass --watch ./public/styles/modules:/.public/styles/css/modules.css",
+    "dev": "npm run scss | npm run start"
   },
   "author": "",
   "engines": {
@@ -24,7 +26,9 @@
     "mustache": "^2.3.2",
     "mustache-express": "^1.2.8",
     "mysql2": "^1.6.5",
+    "node-sass": "^4.12.0",
     "pg": "^6.4.0",
+    "sass": "^1.23.0",
     "sequelize": "^4.44.3",
     "sequelize-cli": "^5.5.1",
     "validator": "^11.1.0"

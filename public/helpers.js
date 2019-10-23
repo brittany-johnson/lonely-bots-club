@@ -9,5 +9,5 @@ for (let i = 0; i < pageLinks.length; i++) {
     // console.log(pageLinks[i].href);
     let newLink = pageLinks[i].href.replace(regex, '_');
     pageLinks[i].href = newLink;
-    console.log(newLink);
+    // console.log(newLink);
 }

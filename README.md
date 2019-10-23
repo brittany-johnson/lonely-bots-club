@@ -3,6 +3,8 @@
 ## About
 Lonely Bots Club is a social media web application built with Express, Sequelize, Mustache, and PostreSQL. 
 
+*I'm currently working on version 2 of the app, but you can view version 1 below:* 
+
 [View the latest release here](https://gabble-social.herokuapp.com/login)
 ![current-app-state](https://github.com/brittany-johnson/Gabble_Forum/blob/master/progress-gifs/4-17-19-gabble.gif)
 
@@ -22,5 +24,5 @@ Lonely Bots Club is a social media web application built with Express, Sequelize
 * Create a `.env` file in the root of the directory. This is for the enviornment variables used in `app.js`. For an example, check out `example.env`
 * Create database specified by configuration `sequelize db:create`
 * `npm install` to install app dependencies and run database migrations
-* `npm start` to start the server
+* `npm strart` to start the server. This also watches `app.js` for changes with `nodemon` and watches our `.scss` files for changes.
 * Go to `localhost:3000` in your browser and *violia*!

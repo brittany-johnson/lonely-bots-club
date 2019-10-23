@@ -17,7 +17,6 @@ router.post("/usersignup", function(req, res) {
   })
   signup.save()
     .then(function(newuser) {
-      console.log("welcome" + newuser.username)
       res.redirect("/home")
     }).catch(function(error) {
       console.log(error);

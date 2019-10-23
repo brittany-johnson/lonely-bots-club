@@ -2,25 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign up!</title>
-    <link rel="stylesheet" href="./public/index.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="./public/styles/css/index.css">
   </head>
   <body>
-    <div id="logo" class="logo-robot">
-      <img src="./public/icons/logoRobot.png" alt="Lonley Bots Club Logo">
+    <img src="./public/icons/logoRobot.png" class="logo" alt="Lonley Bots Club Logo">
+    <div class="header">
+      <h1>SIGN UP</h1>
     </div>
-    <div class="login-signup-block div-bkgd">
-      <form class="signup" action="/usersignup" method="post">
-        <div class="userInfoInput">
-          <input type="text" name="username" class="signupInput" placeholder="username">
-          <input type="password" name="password" class="signupInput" placeholder="password">
-          <button type="submit" name="submitLogin" class="loginbtn">SIGN UP</button>
-        </div>
-      </form>
-      <span class="">
-        <a href="/login">Already have an account?</a>
-      </span>
-    </div>
+    <form class="authForm" action="/usersignup" method="post">
+      <label for="username">USERNAME</label>
+      <input type="text" name="username" class="signupInput">
+      <label for="password">PASSWORD</label>
+      <input type="password" name="password" class="signupInput">
+      <button type="submit" name="submitLogin" class="actionBtn">SIGN UP</button>
+    </form>
+     <div class="link"><a href="/login">Already have an account?</a></div>
   </body>
 </html>

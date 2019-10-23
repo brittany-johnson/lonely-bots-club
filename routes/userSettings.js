@@ -31,8 +31,7 @@ router.get('/settings/:userId', (req,res) => {
 
 router.post('/uploadProfilePic/:userid', upload.single('inputProfilePic'),(req,res) => {
   const userId = req.params.userid.replace(/id=/, '');
-  const profilepicture = req.file;
-
+  const profilepicture = req.file.toString('base64');
   if (session.user) {
     models.Users.findOne({
       where: {
@@ -40,6 +39,7 @@ router.post('/uploadProfilePic/:userid', upload.single('inputProfilePic'),(req,r
       }
     })
     .then((user) => {
+      console.log("this is line 42" + JSON.stringify(user.profilepic));
       res.render('user-settings', {
         id: userId
       });
@@ -51,6 +51,7 @@ router.post('/uploadProfilePic/:userid', upload.single('inputProfilePic'),(req,r
           id: userId
         }}
       )
+      console.log("this is req.file: " + req.file.name)
     })
   } else {
     res.redirect('/login')

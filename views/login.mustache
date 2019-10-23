@@ -2,25 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Login</title>
-    <link rel="stylesheet" href="./public/index.css">
+    <link rel="stylesheet" href="./public/styles/css/index.css">
   </head>
-  <body class="loginSignupBody">
-      <div class="loginBlock">
-        <div class="loginHeaderSpan">
-          <span class=loginHeader>Login</span>
-          <div class="signupLoginButt">
-            <a href="/signup">Signup</a>
-          </div>
-        </div>
-<form class="login" action="/userlogin" method="post">
-  <div class="userInfoInput">
-    <input type="text" name="username" class= "loginInput" placeholder="username">
-    <input type="password" name="password" class="loginInput" placeholder="password">
-    <button type="submit" name="submitLogin" class="loginbutt">login</button>
-  </div>
-</form>
-      </div>
+  <body>
+    <img src="./public/icons/logoRobot.png" class="logo" alt="Lonley Bots Club Logo">
+    <div class="header">
+      <h1>LOG IN</h1>
+    </div>
+    <form class="authForm" action="/userlogin" method="post">
+      <label for="username">USERNAME</label>
+      <input type="text" name="username" class= "authInput">
+      <label for="password">PASSWORD</label>
+      <input type="password" name="password" class="credInput">
+      <button type="submit" name="submitLogin" class="actionBtn">LOG IN</button>
+    </form>
+    <div class="link"><a href="/signup">Don't have an account?</a></div>
   </body>
 </html>

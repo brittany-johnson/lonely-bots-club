@@ -1,0 +1,68 @@
+* { box-sizing: border-box; margin: 0 auto;}
+
+$grey: #F5F8FA;
+$organge: #F2850F;
+$blue: #55ACEE;
+$white:  #FFFFFF;
+$red: #DD2E44;
+$black:#000000;
+$default-font: "Arial Black", Gadget, sans-serif;
+
+@mixin header($size, $color) {}
+
+body {
+    font-family: $default-font;
+}
+.link {
+    text-align: center;
+}
+.link a {
+    color: $organge;
+    text-decoration: none;
+}
+.logo {
+    display: block;
+    max-width: 7rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.authForm {
+    background-color: $grey;
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    padding: 2rem;
+    border-radius: 15px;
+    justify-content: center;
+    height: 60vh;
+    label {
+        color: $organge;
+        margin-bottom: 10px;
+    }
+    input {
+        border-radius: 7px;
+        border: none;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        width: -webkit-fill-available;
+    }
+}
+.actionBtn {
+    background-color: $blue;
+    color: $white;
+    padding: 1rem;
+    border-radius: 6px;
+    border: none;
+    text-align: center;
+    font-family: $default-font;
+    width: -webkit-fill-available;
+}
+
+@media (max-width: 480px) {}
+@media (max-width: 768px) {
+    .header {
+        display: none;
+    }
+}
+@media (max-width: 992px) {}
+@media (max-width: 1200px) {}

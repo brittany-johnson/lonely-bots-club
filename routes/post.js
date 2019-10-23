@@ -12,7 +12,6 @@ router.get("/createpost/:clubId", function(req, res) {
       }
     })
     .then((user) => {
-      console.log(user);
       res.render('create-post', {
         id: clubId
       });
@@ -77,8 +76,6 @@ router.post("/submitpost/:clubId", (req,res) => {
   const clubId = req.params.clubId.replace(/id=/, '');
   const currentUser= session.user;
 
-  console.log("works here")
-
   models.Users.findOne({
     where: {
       username: currentUser
@@ -120,10 +117,8 @@ router.post('/like/:postId', (req, res) => {
       })
       .then(likes => {
         const userlike = likes;
-        console.log(userlike);
         if(!userlike) {
             //when like = null
-            console.log("this works");
             const like = models.Likes.build({
               Like: true,
               UserId: userId,
