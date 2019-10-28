@@ -14,28 +14,30 @@ body {
 
 .logo {
   display: block;
-  max-width: 7rem;
+  max-height: 30vh;
   margin-top: 2rem;
   margin-bottom: 2rem; }
 
-.authForm {
+.background-1 {
   background-color: #F5F8FA;
   display: flex;
   flex-direction: column;
-  width: 90vw;
+  width: 70vw;
   padding: 2rem;
   border-radius: 15px;
   justify-content: center;
-  height: 60vh; }
-  .authForm label {
+  margin-bottom: 2rem; }
+  .background-1 label {
     color: #F2850F;
-    margin-bottom: 10px; }
-  .authForm input {
+    font-size: 2rem; }
+  .background-1 input {
     border-radius: 7px;
     border: none;
     padding: 1rem;
-    margin-bottom: 1rem;
-    width: -webkit-fill-available; }
+    margin-bottom: 2rem;
+    height: 6vh;
+    width: 50vw;
+    font-size: 2rem; }
 
 .actionBtn {
   background-color: #55ACEE;
@@ -45,10 +47,49 @@ body {
   border: none;
   text-align: center;
   font-family: "Arial Black", Gadget, sans-serif;
-  width: -webkit-fill-available; }
+  font-size: 2rem;
+  text-decoration: none;
+  min-width: auto;
+  height: auto;
+  margin-bottom: auto; }
 
+#welcome > .actionBtn {
+  background-color: #55ACEE;
+  color: #FFFFFF;
+  padding: 1rem;
+  border-radius: 6px;
+  border: none;
+  text-align: center;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 2rem;
+  text-decoration: none;
+  min-width: 50vw;
+  height: auto;
+  margin-bottom: 4vw; }
+
+h1.welcome-txt {
+  color: #F2850F;
+  margin-bottom: 1rem; }
+
+@media (max-width: 374px) {
+  #welcome > .actionBtn {
+    background-color: #55ACEE;
+    color: #FFFFFF;
+    padding: 1rem;
+    border-radius: 6px;
+    border: none;
+    text-align: center;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 2rem;
+    text-decoration: none;
+    min-width: 60vw;
+    height: auto;
+    margin-bottom: 4vw; }
+
+  .background-1 {
+    width: 80vw; } }
 @media (max-width: 768px) {
-  .header {
+  .welcome-txt.top {
     display: none; } }
 
 /*# sourceMappingURL=index.css.map */

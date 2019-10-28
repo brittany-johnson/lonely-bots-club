@@ -8,7 +8,20 @@ $red: #DD2E44;
 $black:#000000;
 $default-font: "Arial Black", Gadget, sans-serif;
 
-@mixin header($size, $color) {}
+@mixin button ($width: auto, $height: auto, $margin-bottom: auto) {
+    background-color: $blue;
+    color: $white;
+    padding: 1rem;
+    border-radius: 6px;
+    border: none;
+    text-align: center;
+    font-family: $default-font;
+    font-size: 2rem;
+    text-decoration: none;
+    min-width: $width;
+    height: $height;
+    margin-bottom: $margin-bottom;
+}
 
 body {
     font-family: $default-font;
@@ -22,45 +35,58 @@ body {
 }
 .logo {
     display: block;
-    max-width: 7rem;
+    max-height: 30vh;
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
-.authForm {
+.background-1 {
     background-color: $grey;
     display: flex;
     flex-direction: column;
-    width: 90vw;
+    width: 70vw;
     padding: 2rem;
     border-radius: 15px;
     justify-content: center;
-    height: 60vh;
+    margin-bottom: 2rem;
     label {
         color: $organge;
-        margin-bottom: 10px;
+        font-size: 2rem;
     }
     input {
         border-radius: 7px;
         border: none;
         padding: 1rem;
-        margin-bottom: 1rem;
-        width: -webkit-fill-available;
+        margin-bottom: 2rem;
+        height: 6vh;
+        width: 50vw;
+        font-size: 2rem;
     }
 }
 .actionBtn {
-    background-color: $blue;
-    color: $white;
-    padding: 1rem;
-    border-radius: 6px;
-    border: none;
-    text-align: center;
-    font-family: $default-font;
-    width: -webkit-fill-available;
+    @include button;
 }
 
+#welcome > .actionBtn {
+    @include button(50vw, auto, 4vw)
+}
+
+h1.welcome-txt {
+    color: $organge;
+    margin-bottom: 1rem;
+}
+
+
+@media (max-width: 374px) {
+    #welcome > .actionBtn {
+        @include button(60vw, auto, 4vw)
+    }
+    .background-1 {
+        width: 80vw;
+    }
+}
 @media (max-width: 480px) {}
 @media (max-width: 768px) {
-    .header {
+    .welcome-txt.top {
         display: none;
     }
 }
